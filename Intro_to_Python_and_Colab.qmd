@@ -1,0 +1,367 @@
+---
+title: "Introduction to Python and Google Colab"
+author: "Rob Willans"
+format: revealjs
+title-slide-attributes: 
+  data-notes:  |
+    Welcome everyone! My name is Rob Willans, a Data Scientist in the Data and Analytics team. I'll be guiding you through this session, an introduction to Python and Google Colab. This is the first in a series of sessions designed to help you get started with Python for Data Science. 
+    In later sessions, we'll cover topics like
+    - importing and manipulating data in pandas
+    - plotting data with Matplotlib,
+    - and other useful topics. 
+    
+    In this session, we'll cover the following: 
+    - A brief overview of Python and its history.
+    - Why Python is a popular choice for data science. 
+    - A quick introduction to the NHS Python Community and its resources. 
+    - Understanding notebook IDEs and why they are useful.
+    - Getting started with Google Colab and writing basic Python code.
+    - An overview of Python data types, structures and indexing. 
+    - Using Large Language Models (LLMs) for code assistance. 
+    - An introduction to key Python libraries for data science
+    
+    Python is a versatile and powerful programming language that has gained immense popularity in recent years. It's widely used in various fields, including web development, data analysis, machine learning, and more. We're going to start this session with a very brief overview of the history and development of Python.
+---
+
+## Welcome and Agenda
+
+- Introductions
+- **Today's Session**
+  - **Morning**
+    - Intro to Python and Google Colab
+    - Importing and manipulating data with Pandas
+  - **Afternoon**
+    - Visualisations with Matplotlib
+    - Where to go next
+- Will finish 4pm at absolute latest, including breaks
+
+::: {.notes} 
+Welcome everyone to the session. - Introduce yourself - Get everyone to introduce themselves and explain either their background in python, or their motivation for learning more about python. - Outline the objectives: Give people a basic intro - won't be comprehensive, aim to get you to the point of being confident to explore further yourself - To do that, we're going to focus on the main beginner DS tasks, importing data, manipulating it, getting an output. Run through agenda for the day 
+:::
+
+------------------------------------------------------------------------
+
+## A very brief overview of Python
+
+- Created by Guido van Rossum in the late 1980s, first release 1991
+- Python 2 released 2000, Python 3 released 2008
+- Python's philosophy: readability and simplicity.
+- [PEP 20 – The Zen of Python \| peps.python.org](https://peps.python.org/pep-0020/#the-zen-of-python)
+
+::: {.notes}
+Python was created by Guido van Rossum in the late 1980, with the first Python release in 1991. Over the years, it has undergone significant development. Major versions include Python 2.0, released in 2000, and Python 3.0, released in 2008. Python 3 introduced many improvements and new features, but it was not backward compatible with Python 2, which led to a gradual transition period. Happily that's probably now long enough in the past that you won't ever have to worry about seeing Python 2 code in the wild.
+Python's popularity has surged in recent years due to its versatility and the growth of data science and machine learning. It's now one of the most popular programming languages in the world, used by many organisations for data analysis and analytics. One of the key reasons for its popularity is its philosophy, which emphasizes readability and simplicity. Instead of using lots of brackets and symbols, Python uses indentation, making it relatively easy to read and learn. There's even a set of guiding principles known as PEP 20, or "The Zen of Python," which you can look up if desired. This includes design principles like like "Beautiful is better than ugly," "Explicit is better than implicit," and "Simple is better than complex." These principles guide Python developers in writing clean and maintainable code.
+
+:::
+
+------------------------------------------------------------------------
+
+## Why Python for Data Science?
+
+- Popularity and community support.
+- Extensive libraries and frameworks (e.g., pandas, numpy, matplotlib, scikit-learn).
+- Integration with other technologies and tools.
+
+::: {.notes}
+Python is incredibly popular, especially in the data science community. This popularity is due to several factors:
+
+- First, there's the extensive community support. If you ever run into a problem, chances are someone else has too, and there's a solution out there. There are lots of resources out there to learn Python, many free, and you will usually find something that you like and that works for you.
+- Second, Python has a wealth of libraries and frameworks designed specifically for data science, such as pandas, numpy, matplotlib and scikit-learn.
+- Finally, Python integrates well with other technologies and tools, making it a versatile choice for data science projects, where you may be upstream of people wishing to use your outputs, or downstream of some other group producing the data that you need to link in to.
+
+:::
+
+------------------------------------------------------------------------
+
+## NHS Python Community
+
+![](images/clipboard-2082731851.png)
+
+[https://nhs-pycom.net](https://nhs-pycom.net)
+
+- [Slack channel](https://join.slack.com/t/nhs-pycom/shared_invite/zt-z6h1hszo-3_w68FdalVM2EATVVdgCuw)
+- [Youtube](https://www.youtube.com/channel/UC_jacmsGNZQR5BPP7h0EtXw/videos)
+- [GitHub repository](https://github.com/nhs-pycom)
+
+::: {.notes}
+I'm now going to briefly talk about the NHS Python community. This community is a nice resource for support and learning. They have an active Slack channel here, a YouTube channel for tutorials and talks here, and a GitHub repository showcasing code. All these links van be accessed via the main website nhs-pycom.net.
+
+The community is dedicated to NHS staff helping each other learn and grow in Python, so don't hesitate to get involved! Whether you're a beginner or an experienced programmer, the NHS Python Community offers valuable resources and support to enhance your Python skills.
+
+You can also find success stories and examples of projects that have been completed within the community, which can be very inspiring and provide practical insights into how Python is being used in healthcare.
+:::
+
+------------------------------------------------------------------------
+
+## Understanding IDEs
+
+- Integrated Development Environments (IDEs) make writing and working with code much easier
+- Notebook IDEs are IDEs that follow a 'book' type format
+  - Key features: Code cells, markdown cells, inline outputs
+
+::: {.notes}
+
+Before we dive into coding, let's talk about Integrated Development Environments, or IDEs, specifically notebook IDEs. An IDE is a tool that makes writing code easier by providing features like code saving, debugging, and color coding.
+
+A notebook IDE, like Google Colab, interleaves explanatory text, code, and outputs together. This means you can write explanations of your code and results right alongside the code that generates those results. You can also move these cells around to reorder your outputs, which we'll see in action shortly.
+
+Notebook IDEs are particularly useful for data science because they allow you to document your workflow, visualize data, and share your work with others easily. Google Colab, Jupyter Notebooks, and other notebook IDEs have become essential tools for data scientists.
+
+Compared to traditional IDEs, notebook IDEs offer a more interactive and flexible environment, which is ideal for exploratory data analysis and iterative development.
+:::
+
+------------------------------------------------------------------------
+
+## Introduction to Google Colab
+
+- Notebook IDE that works with Google Workspace
+- Primarily designed for Python
+- Don't have to worry about environments, package installs, hardware
+- Also have access to Gemini 
+
+::: {.notes}
+Google colab is a notebook IDE built around the Google Workspace tools. We're going to use it to write Python code, which is what it's mostly designed for. It means we won't have to worry about installing software or packages, we can just work in browser. We also have access to Gemini, which is google's LLM, which can be useful for explaining and generating code. I'll talk a bit more about this later, but first, let's get started with some very basic python!
+:::
+
+------------------------------------------------------------------------
+
+## Getting started in Colab
+
+- Python as calculator!
+- Try writing some markdown text!
+- Write "hello world"
+- Assign a value to an object
+
+```{python}
+#| echo: true
+
+# Hello world
+print("Hello world!")
+
+# Assignment
+an_object = "some text" 
+print(an_object)
+
+```
+
+::: {.notes}
+
+Ok, let's actually write some Python code now! Share screen and check everyone has Colab, and demo how to load it up. One thing that you can do immediately is use Python as a calculator. Start by creating a new code block (plus code) and then do some maths in there (DEMO). Run the block by clicking the play sign, or press control and enter, and it'll spit out the result below. This interleaving of output immediately below code is a feature of notebook IDEs.
+
+Now try writing some markdown text to provide context for this result (demo). When finished you can toggle edit or click out of the window.
+
+Finally, you can write your first Python program, the traditional "Hello, world!" (demo).
+
+Lastly, you can practice assignment, which is saving something to a named object that you can use later. Here I'm assigning some text to an object, which I can then retrieve later, for example via the print function
+
+If you want to move code blocks around, you can use the up and down arrows. You can also give your notebook a name by clicking on 'untitled' and naming the workbook.
+
+Whilst this is fairly trivial, using Python as a calculator and writing simple programs like "Hello, world!" are nice ways to get familiar with the syntax and functionality of Python. Do spend the time to have a play around with this, even if you need to momentarily pause the video. As we progress, we'll explore more complex operations and data manipulations. 
+
+:::
+
+----------------------------------------------------------------------------
+
+## Basic Data Types in Python
+
+- Strings: Text data.
+
+```{python}
+#| echo: true
+patient_name = "Alice"
+```
+
+- Numeric: Integer and float types.
+
+```{python}
+#| echo: true
+patient_age = 30  # Integer values for 'whole number'
+patient_weight = 70.5  # Float values for fractional values
+```
+
+- Boolean: True or False values.
+
+```{python}
+#| echo: true
+is_discharged = True
+```
+
+::: {.notes} 
+
+Python has several basic data types that are fundamental for programming and data manipulation. Let's go over the main ones with examples related to health or healthcare:
+
+Strings: Strings are used to represent text data. They are created using either single or double quotes. Either is fine,  For example:
+
+patient_name = "Alice"
+This is a string representing a patient's name. Strings are useful for storing and manipulating text.
+
+Numeric Types: Python has two main numeric types: integers and floats. Integers are whole numbers, while floats are numbers with decimal points. For example:
+
+patient_age = 30  # Integer
+patient_weight = 70.5  # Float
+Here, patient_age is an integer representing a patient's age, and patient_weight is a float representing a patient's weight. Numeric types are essential for performing mathematical operations.
+
+Boolean: Booleans represent one of two values: True or False. They are often used in conditional statements and to represent binary states. For example:
+
+is_discharged = True
+This boolean indicates whether a patient is discharged. Booleans are useful for controlling the flow of programs and making decisions.
+
+Understanding these basic data types is essential for working with data in Python. They form the foundation for more complex data operations that we will explore later. Next, we'll look at some basic data structures, showing how data can be organised in Python.
+:::
+
+-----------------------------------------------------------------
+
+## Python Data Structures
+
+- Lists: Mutable collections of items.
+
+```{python}
+#| echo: true
+patient_ages = [25, 30, 45, 50, 60]
+```
+
+- Tuples: Immutable collections of items.
+
+```{python}
+#| echo: true
+patient_info = ('Joe Bloggs', 45, 'A+') 
+```
+
+- Dictionaries: Mutable collections of key-value pairs.
+
+```{python}
+#| echo: true
+patient_record = {'name': 'Methuselah', 'age': 369, 'diagnosis': 'Frailty'} 
+```
+
+::: {.notes}
+
+Python has several built-in data structures that are essential for programming and data manipulation. Let's go over the main ones with examples related to health or healthcare:
+
+First, we have lists. Lists are ordered and mutable collections of items, which means you can change their content after they are created. Lists are created using square brackets. For example:
+
+patient_ages = [25, 30, 45, 50, 60]
+This is a list of patient ages. You can add, remove, or modify items in a list, making them very flexible for storing sequences of data.
+
+Next, we have tuples. Tuples are also ordered collections of items, but they are immutable, meaning once they are created, their content cannot be changed. Tuples are created using parentheses. For example:
+
+patient_info = ('Joe Bloggs', 45, 'A+')
+This tuple contains a patient's name, age, and blood type. Tuples are useful for storing data that should not be modified.
+
+Finally, we have dictionaries. Dictionaries are collections of key-value pairs and are mutable, so you can change their content after they are created. Dictionaries are created using curly braces. For example:
+
+patient_record = {'name': 'Methuselah', 'age': 369, 'diagnosis': 'Frailty'}
+This dictionary contains a patient's name, age, and diagnosis. Dictionaries are similar to named lists in other languages like R, where each key-value pair can be accessed using the key. They are very efficient for data retrieval.
+
+Understanding these data structures is crucial for working with data in Python. Lists and tuples allow you to store sequences of items, while dictionaries provide a way to map keys to values, making data retrieval efficient. These structures will be fundamental as we move forward with more complex data manipulations. Other data structures are present, but these are the main ones to cover for now.
+
+:::
+
+-----------------------------------------------------------------------
+
+## Indexing in Python
+
+- Python starts indexing from 0
+- Therefore the first item in a list is accessed with zero
+- Contrast with R which indexes from 1
+
+```{python}
+#| echo: true
+#| output: true
+# Python
+patient_ages = [25, 30, 45, 50, 60]
+patient_ages[0] 
+```
+
+```{r}
+#| echo: true
+#| output: true
+# R
+patient_ages <- c(25, 30, 45, 50, 60)
+patient_ages[1] 
+```
+
+::: {.notes} 
+
+Now lets talk about how to access particular items in, say, a list. Normally you will retrieve data by some form of indexing
+
+Indexing is a fundamental concept in Python and many other programming languages. In Python, indexing starts at 0, which means the first item in a list is accessed by referencing the zero position. Let's look at an example:
+
+patient_ages = [25, 30, 45, 50, 60]
+first_patient_age = patient_ages[0]
+In this example, first_patient_age will be 25, the first item in the list.
+
+This is different from R, where indexing starts at 1. So, the first item in a list in R is accessed by referencing the one position.
+
+patient_ages <- c(25, 30, 45, 50, 60)
+first_patient_age <- patient_ages[1]
+In this R example, first_patient_age will also be 25, but it's accessed using index 1.
+
+Understanding indexing is important for data manipulation and retrieval in Python. Over time, this will become second nature, but for now, you may need to exercise some care when pulling data from data structures
+:::
+
+
+------------------------------------------------------------------------
+
+## LLMs for code
+
+- New, but very powerful
+- Don't ask it to do the whole job
+  - It will not know the data structure, and you will not learn
+- If you want to use it, ask it to write small bits of code you can test, *and explain it*
+- Prompt *with context*
+- Ask it to explain code to you
+- Ask it what the problem is when things go wrong
+
+::: {.notes}
+
+You'll see that colab also has AI built into it provided by google's Gemini LLM. These tools can be great for writing code faster and much more efficiently. However, there are risks with these things, so I'm going to spend a little time just discussing how I think you can get the most out of these as beginners.
+
+Firstly, don't ask it to write the whole task for you. It is unlikely to work, especially as it will not know how your data is structured or what it contains. Furthermore, you will not learn much by copy/pasting code.
+
+What you want to do is work in small chunks. If you get stuck, you can ask for a suggestion on how to solve the problem, or example code, but get in the habit of asking it to EXPLAIN the code to you, so you will learn while you do, and you know what the code does.
+
+LLMs can be really effective for learning, especially if you prompt appropriately WITH CONTEXT. So, if you say "I am a beginner Python programmer", it will change answers to be more appropriate for beginners, with more detailed explanations. Similarly, if you say you work in health, or know something else well, like excel or R, it will try and give you analogies or contrasts with things you already know well. These analogies can be great for helping understand concepts and code. DEMO THIS
+
+You can also paste other people's code in there and ask it to explain the code to you. That's sometimes quite useful. A low-tech thing that often saves time is to paste non working code and the error message in there, and ask it to tell you what the problem is.
+
+:::
+
+------------------------------------------------------------------------
+
+## Code libraries
+
+- Code libraries are prepackaged objects, methods, functions for specific tasks
+- We will look at Pandas for manipulating data and Matplotlib for data visualisation
+- When working in your own environment, need to get these from pip installer or conda package management
+- Happily, Colab means we don't have to set these up
+- Practice importing pandas (as pd) and numpy (as np)
+
+::: {.notes}
+In most cases, you'll augment the code you're writing with preexisting code libraries. You can think of these as specialized toolboxes for specific tasks. Just as you can't build a house with only a one tool, you'll need several libraries to accomplish most tasks. Writing all of this in base Python would take far too long and be massively inefficient, so we all stand on the shoulders of those who've gone before and made it all easier for us by creating these libries.
+
+In these sessions, we'll focus on at least extensively used libraries:
+
+- Pandas: This is the go-to library for data manipulation. It provides tools to efficiently handle and analyze tabular data. We'll learn how to use Pandas to clean, transform, and explore our datasets.
+- NumPy: This library adds support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays. NumPy is fundamental for numerical computing in Python. 
+Pandas and NumPy are often used together in data science projects. While Pandas provides high-level data manipulation tools, NumPy offers efficient numerical operations, making them a powerful combination for handling and analyzing data.
+- Matplotlib: This library is essential for data visualization. It allows you to create informative and visually appealing charts and graphs to communicate your findings effectively. We'll see how Matplotlib can help us bring our data to life with visualizations.
+
+
+When working in your own environment, you'll need to install these libraries using tools like Pip or Conda. However, with Colab, we don't need to worry about setting these up, as everything is already configured for us. As a last exercise, you can have a practice importing pandas and numpy using the normal alises.
+
+
+
+:::
+
+------------------------------------------------------------------------
+
+## Any Questions
+
+Any questions, thoughts, errors you got, or things you want demonstrated again?
+
+:::{.notes}
+Pause for questions, if not pass on for next session
+:::
+
+------------------------------------------------------------------------

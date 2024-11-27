@@ -1,0 +1,13 @@
+project:
+  title: "Intro_to_Python_for_data_science"
+author: "Rob Willans"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    code-link: true
+    css: nhsr-quarto.scss
+    preview-links: true
+title-slide-attributes:
+  data-background-color: "#43464B"
+embed-resources: true
+
